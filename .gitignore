@@ -23,7 +23,8 @@ log.txt
 /platforms
 /plugins
 
-# Compiled output
+# Documentation
+/documentation/
 /dist
 /tmp
 /out-tsc
