@@ -1,0 +1,156 @@
+<div class="custom-table-card" role="region" [attr.aria-label]="tableTitle">
+  <!-- Cabecera de la tabla con barra de búsqueda -->
+  <div class="table-header-bar">
+    <div class="title-wrap">
+      <h3 class="table-heading">{{ tableTitle }}</h3>
+      <span class="badge-count" aria-live="polite">
+        {{ processedData().length }} registros
+      </span>
+    </div>
+
+    <div class="table-search-box">
+      <label for="table-search-input" class="visually-hidden">Buscar en tabla</label>
+      <div class="search-input-wrapper">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input
+          id="table-search-input"
+          type="search"
+          placeholder="Buscar por producto, SKU, categoría..."
+          [value]="searchTerm()"
+          (input)="onSearchInput($event)"
+          aria-label="Buscar en la tabla"
+        />
+        @if (searchTerm()) {
+          <button
+            type="button"
+            class="clear-btn"
+            (click)="clearSearch()"
+            aria-label="Limpiar búsqueda"
+          >
+            ✕
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor con scroll horizontal para vista responsive -->
+  <div class="table-responsive-container">
+    <table class="accessible-table" role="grid">
+      <caption class="visually-hidden">{{ tableTitle }}</caption>
+      <thead>
+        <tr>
+          @for (column of columns; track column.key) {
+            <th
+              scope="col"
+              [attr.aria-sort]="sortColumn() === column.key ? (sortDirection() === 'asc' ? 'ascending' : 'descending') : 'none'"
+              (click)="column.sortable !== false ? toggleSort(column.key) : null"
+              [class.sortable-th]="column.sortable !== false"
+              tabindex="0"
+              (keydown.enter)="column.sortable !== false ? toggleSort(column.key) : null"
+              [attr.aria-label]="'Ordenar por ' + column.header"
+            >
+              <div class="th-content">
+                <span>{{ column.header }}</span>
+                @if (column.sortable !== false) {
+                  <span class="sort-indicator" aria-hidden="true">
+                    @if (sortColumn() === column.key) {
+                      {{ sortDirection() === 'asc' ? '▲' : '▼' }}
+                    } @else {
+                      <span class="sort-neutral">⇅</span>
+                    }
+                  </span>
+                }
+              </div>
+            </th>
+          }
+          <th scope="col" class="th-actions">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of paginatedData(); track row['id'] || $index) {
+          <tr
+            tabindex="0"
+            (click)="selectRow(row)"
+            (keydown.enter)="selectRow(row)"
+            (keydown.space)="selectRow(row)"
+            class="table-row-interactive"
+            [attr.aria-label]="'Seleccionar fila ' + (row['producto'] || row['id'])"
+          >
+            @for (column of columns; track column.key) {
+              <td>
+                @if (isStatusColumn(column.key)) {
+                  <span class="status-pill" [ngClass]="getStatusClass(row[column.key])">
+                    {{ row[column.key] }}
+                  </span>
+                } @else if (column.key === 'precio') {
+                  <span class="price-cell">{{ row[column.key] | currency:'EUR':'symbol':'1.0-2':'es-ES' }}</span>
+                } @else {
+                  <span>{{ row[column.key] }}</span>
+                }
+              </td>
+            }
+            <td class="td-actions">
+              <button
+                type="button"
+                class="btn-action-view"
+                (click)="selectRow(row); $event.stopPropagation()"
+                title="Ver detalles"
+                aria-label="Ver detalles"
+              >
+                👁️
+              </button>
+              <button
+                type="button"
+                class="btn-action-delete"
+                (click)="onDelete(row, $event)"
+                title="Eliminar registro"
+                aria-label="Eliminar registro"
+              >
+                🗑️
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td [attr.colspan]="columns.length + 1" class="empty-state-cell">
+              <div class="empty-state-content">
+                <span class="empty-icon" aria-hidden="true">📋</span>
+                <p>No se encontraron registros que coincidan con la búsqueda.</p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Paginación accesible -->
+  @if (totalPages() > 1) {
+    <div class="pagination-footer">
+      <span class="pagination-info">
+        Página <strong>{{ currentPage() }}</strong> de <strong>{{ totalPages() }}</strong>
+      </span>
+      <div class="pagination-controls" role="navigation" aria-label="Navegación de páginas">
+        <button
+          type="button"
+          class="btn-page"
+          [disabled]="currentPage() === 1"
+          (click)="setPage(currentPage() - 1)"
+          aria-label="Página anterior"
+        >
+          ‹ Anterior
+        </button>
+        <button
+          type="button"
+          class="btn-page"
+          [disabled]="currentPage() === totalPages()"
+          (click)="setPage(currentPage() + 1)"
+          aria-label="Página siguiente"
+        >
+          Siguiente ›
+        </button>
+      </div>
+    </div>
+  }
+</div>
