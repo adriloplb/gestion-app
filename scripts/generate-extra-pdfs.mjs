@@ -271,3 +271,4 @@ run().catch(err => {
   console.error('Error generando PDFs adicionales:', err);
   process.exit(1);
 });
+

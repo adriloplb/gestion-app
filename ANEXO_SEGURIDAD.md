@@ -140,3 +140,4 @@ Con este conjunto de medidas, la aplicación no es un simple prototipo visual, s
 * **Sesiones blindadas:** Tokens JWT controlados por interceptores automáticos con revocación inmediata ante cualquier anomalía.
 * **Datos íntegros:** Formularios que impiden la duplicidad de registros y filtran cualquier valor fuera de rango.
 * **Archivos seguros:** Informes limpios que no comprometen la seguridad de los equipos de oficina.
+

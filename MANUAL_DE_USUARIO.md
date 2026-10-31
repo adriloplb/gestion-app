@@ -147,3 +147,4 @@ Para que la aplicación sea cómoda para todo el mundo, he cuidado especialmente
 * **Navegación completa por teclado:** Si prefieres no usar el ratón, puedes moverte por toda la interfaz pulsando la tecla `Tabulador`. Puedes abrir menús, seleccionar filas de la tabla pulsando `Enter` o la `Barra Espaciadora`, y activar cualquier botón.
 * **Uso en teléfonos móviles:** Todo el diseño se recoloca automáticamente en vertical en pantallas pequeñas. Las tablas permiten deslizamiento horizontal suave si no caben enteras, y los botones son lo bastante amplios para tocarlos cómodamente con el dedo.
 * **Seguridad al terminar:** Recuerda siempre pulsar en **Cerrar Sesión** en el menú lateral cuando vayas a dejar de usar la aplicación en un equipo compartido. De este modo te aseguras de que nadie pueda realizar cambios en el inventario con tu cuenta.
+
