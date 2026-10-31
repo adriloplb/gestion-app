@@ -1,3 +1,122 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <!-- Menú Lateral Global (Side Menu) exigido en Paso 1.1 -->
+    <ion-menu contentId="main-content" type="overlay" aria-label="Menú de Navegación Principal">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Nebrija Gestión</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <!-- Tarjeta de Estado del Usuario Activo -->
+        <div class="user-session-card">
+          @if (authService.currentUser$ | async; as user) {
+            <div class="user-info-flex">
+              <ion-icon name="person-circle-outline" class="user-avatar-icon" aria-hidden="true"></ion-icon>
+              <div class="user-texts">
+                <span class="user-name">{{ user.name }}</span>
+                <span class="user-email">{{ user.email }}</span>
+                <ion-badge [color]="user.role === 'ADMIN' ? 'warning' : 'tertiary'" class="role-pill">
+                  Rol: {{ user.role }}
+                </ion-badge>
+              </div>
+            </div>
+          } @else {
+            <div class="no-session-flex">
+              <span class="no-session-title">Sesión No Iniciada</span>
+              <p class="no-session-sub">Inicie sesión para acceder a las funciones protegidas.</p>
+            </div>
+          }
+        </div>
+
+        <!-- Lista de Navegación Global con Carga Diferida -->
+        <ion-list lines="none" class="nav-menu-list">
+          <ion-list-header>
+            <ion-label>Módulos de la Aplicación</ion-label>
+          </ion-list-header>
+
+          <!-- Cuadro de Mando (Visible para Administrador) -->
+          @if (authService.hasRole('ADMIN')) {
+            <ion-menu-toggle auto-hide="false">
+              <ion-item
+                routerLink="/dashboard"
+                routerLinkActive="selected-nav-item"
+                [routerLinkActiveOptions]="{ exact: false }"
+                detail="false"
+                class="nav-item"
+              >
+                <ion-icon slot="start" name="stats-chart-outline" aria-hidden="true"></ion-icon>
+                <ion-label>Cuadro de Mando (Admin)</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          }
+
+          <!-- Gestión & Alta de Registros (Estándar y Admin) -->
+          @if (authService.isAuthenticated()) {
+            <ion-menu-toggle auto-hide="false">
+              <ion-item
+                routerLink="/registros"
+                routerLinkActive="selected-nav-item"
+                [routerLinkActiveOptions]="{ exact: false }"
+                detail="false"
+                class="nav-item"
+              >
+                <ion-icon slot="start" name="layers-outline" aria-hidden="true"></ion-icon>
+                <ion-label>Inventario & Altas</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          }
+
+          <!-- Manual de Usuario / Documentación (Público) -->
+          <ion-menu-toggle auto-hide="false">
+            <ion-item
+              routerLink="/ayuda"
+              routerLinkActive="selected-nav-item"
+              [routerLinkActiveOptions]="{ exact: false }"
+              detail="false"
+              class="nav-item"
+            >
+              <ion-icon slot="start" name="help-circle-outline" aria-hidden="true"></ion-icon>
+              <ion-label>Manual y Ayuda</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-list-header style="margin-top: 1rem;">
+            <ion-label>Sesión y Seguridad</ion-label>
+          </ion-list-header>
+
+          @if (authService.isAuthenticated()) {
+            <ion-menu-toggle auto-hide="false">
+              <ion-item button (click)="logout()" detail="false" class="nav-item logout-item">
+                <ion-icon slot="start" name="log-out-outline" aria-hidden="true"></ion-icon>
+                <ion-label>Cerrar Sesión</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          } @else {
+            <ion-menu-toggle auto-hide="false">
+              <ion-item
+                routerLink="/login"
+                routerLinkActive="selected-nav-item"
+                [routerLinkActiveOptions]="{ exact: false }"
+                detail="false"
+                class="nav-item"
+              >
+                <ion-icon slot="start" name="log-in-outline" aria-hidden="true"></ion-icon>
+                <ion-label>Iniciar Sesión</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          }
+        </ion-list>
+      </ion-content>
+
+      <ion-footer class="menu-footer ion-padding-horizontal">
+        <p class="footer-academic">FP Grado Superior DAM</p>
+        <p class="footer-sub">Desarrollo de Interfaces (0488) - Nebrija</p>
+      </ion-footer>
+    </ion-menu>
+
+    <!-- Área de Enrutamiento Principal con Router Outlet -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
