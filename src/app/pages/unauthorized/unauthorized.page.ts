@@ -41,7 +41,13 @@ import { AuthService } from '../../services/auth.service';
       <div class="error-wrapper">
         <ion-card class="error-card">
           <ion-card-header class="ion-text-center">
-            <div class="lock-icon" aria-hidden="true">🚫</div>
+            <div class="lock-icon-svg-wrapper" aria-hidden="true">
+              <svg class="shield-lock-svg" viewBox="0 0 24 24" fill="none" stroke="#eb445a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+              </svg>
+            </div>
             <ion-card-title>Acceso No Autorizado (403 Forbidden)</ion-card-title>
           </ion-card-header>
 
@@ -53,7 +59,7 @@ import { AuthService } from '../../services/auth.service';
             </p>
 
             <div class="rbac-notice">
-              <span>🔒 Protección activa mediante Angular <code>roleGuard</code>.</span>
+              <span>Protección activa mediante Angular <code>roleGuard</code>.</span>
             </div>
 
             <div class="action-buttons">
@@ -88,11 +94,19 @@ import { AuthService } from '../../services/auth.service';
       border: 1px solid var(--ion-color-step-150, #e2e8f0);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       padding: 1rem 0;
+      background: #ffffff !important;
+      --background: #ffffff !important;
     }
 
-    .lock-icon {
-      font-size: 3.5rem;
+    .lock-icon-svg-wrapper {
+      display: flex;
+      justify-content: center;
       margin-bottom: 0.5rem;
+    }
+
+    .shield-lock-svg {
+      width: 64px;
+      height: 64px;
     }
 
     .error-description {

@@ -1,12 +1,6 @@
 /*
- * App Global CSS
+ * App Global CSS - Sistema de Gestión FP Nebrija (Adrián López)
  * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
 /* Core CSS required for Ionic components to work properly */
@@ -18,20 +12,137 @@
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* Optional CSS utils */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* Paleta de colores consistente en modo claro (Light Theme Forzado) */
+:root,
+:root.md,
+:root.ios,
+body,
+body.dark {
+  color-scheme: light !important;
+  --ion-background-color: #f8fafc !important;
+  --ion-background-color-rgb: 248, 250, 252 !important;
+  --ion-text-color: #0f172a !important;
+  --ion-text-color-rgb: 15, 23, 42 !important;
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+  --ion-card-background: #ffffff !important;
+  --ion-item-background: #ffffff !important;
+  --ion-toolbar-background: #ffffff !important;
+
+  --ion-color-step-50: #f8fafc !important;
+  --ion-color-step-100: #f1f5f9 !important;
+  --ion-color-step-150: #e2e8f0 !important;
+  --ion-color-step-200: #cbd5e1 !important;
+  --ion-color-step-250: #94a3b8 !important;
+  --ion-color-step-300: #64748b !important;
+  --ion-color-step-350: #475569 !important;
+  --ion-color-step-400: #334155 !important;
+  --ion-color-step-450: #1e293b !important;
+  --ion-color-step-500: #0f172a !important;
+  --ion-color-step-800: #1e293b !important;
+  --ion-color-step-850: #0f172a !important;
+  --ion-color-step-900: #020617 !important;
+  --ion-color-step-950: #000000 !important;
+}
+
+/* Neutralización definitiva de cualquier preferencia de modo oscuro del sistema operativo */
+@media (prefers-color-scheme: dark) {
+  :root,
+  :root.md,
+  :root.ios,
+  body,
+  body.dark {
+    color-scheme: light !important;
+    --ion-background-color: #f8fafc !important;
+    --ion-background-color-rgb: 248, 250, 252 !important;
+    --ion-text-color: #0f172a !important;
+    --ion-text-color-rgb: 15, 23, 42 !important;
+
+    --ion-card-background: #ffffff !important;
+    --ion-item-background: #ffffff !important;
+    --ion-toolbar-background: #ffffff !important;
+
+    --ion-color-step-50: #f8fafc !important;
+    --ion-color-step-100: #f1f5f9 !important;
+    --ion-color-step-150: #e2e8f0 !important;
+    --ion-color-step-200: #cbd5e1 !important;
+    --ion-color-step-250: #94a3b8 !important;
+    --ion-color-step-300: #64748b !important;
+    --ion-color-step-350: #475569 !important;
+    --ion-color-step-400: #334155 !important;
+    --ion-color-step-450: #1e293b !important;
+    --ion-color-step-500: #0f172a !important;
+    --ion-color-step-800: #1e293b !important;
+  }
+}
+
+html, body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  color-scheme: light !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+ion-app, ion-split-pane, ion-content {
+  --background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+ion-menu {
+  --background: #ffffff !important;
+  border-right: 1px solid #e2e8f0;
+}
+
+ion-menu ion-content {
+  --background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+ion-menu ion-list {
+  background: transparent !important;
+}
+
+ion-menu ion-item {
+  --background: #ffffff !important;
+  --ion-item-background: #ffffff !important;
+}
+
+ion-card {
+  --background: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Forzar que todos los campos de formulario tengan fondo blanco nítido */
+input, select, textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  color-scheme: light !important;
+}
+
+/* Estilo para los botones de pestañas / segmento */
+ion-segment {
+  --background: #f1f5f9 !important;
+  border-radius: 8px;
+}
+
+ion-segment-button {
+  --color: #64748b !important;
+  --color-checked: #3880ff !important;
+  --indicator-color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Toolbars sin color explícito */
+ion-toolbar:not([color]) {
+  --background: #ffffff !important;
+  --color: #0f172a !important;
+  border-bottom: 1px solid #e2e8f0;
+}

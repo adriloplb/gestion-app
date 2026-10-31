@@ -17,16 +17,13 @@ import { CommonModule } from '@angular/common';
     >
       <div class="widget-header">
         <span class="widget-title">{{ title }}</span>
-        @if (icon) {
-          <span class="widget-icon" aria-hidden="true">{{ icon }}</span>
+        @if (badge) {
+          <span class="widget-badge" [style.backgroundColor]="badgeBg">{{ badge }}</span>
         }
       </div>
 
       <div class="widget-body">
         <div class="widget-value">{{ value }}</div>
-        @if (badge) {
-          <span class="widget-badge" [style.backgroundColor]="badgeBg">{{ badge }}</span>
-        }
       </div>
 
       @if (trendText || subtitle) {
@@ -51,11 +48,11 @@ import { CommonModule } from '@angular/common';
     }
 
     .stats-widget-card {
-      background: var(--ion-background-color, #ffffff);
+      background: #ffffff;
       border-radius: 12px;
       padding: 1.25rem 1.4rem;
-      border: 1px solid var(--ion-color-step-150, #e2e8f0);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
 
@@ -65,12 +62,12 @@ import { CommonModule } from '@angular/common';
 
     .stats-widget-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
-      border-color: var(--ion-color-primary, #3880ff);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #3880ff;
     }
 
     .stats-widget-card:focus-visible {
-      outline: 2px solid var(--ion-color-primary, #3880ff);
+      outline: 2px solid #3880ff;
       outline-offset: 2px;
     }
 
@@ -82,15 +79,11 @@ import { CommonModule } from '@angular/common';
     }
 
     .widget-title {
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #64748b;
-    }
-
-    .widget-icon {
-      font-size: 1.35rem;
     }
 
     .widget-body {
@@ -103,7 +96,7 @@ import { CommonModule } from '@angular/common';
     .widget-value {
       font-size: 1.95rem;
       font-weight: 800;
-      color: var(--ion-text-color, #0f172a);
+      color: #0f172a;
       line-height: 1.1;
     }
 
@@ -125,9 +118,6 @@ import { CommonModule } from '@angular/common';
 
     .trend-indicator {
       font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
     }
 
     .widget-sub {
@@ -139,7 +129,6 @@ import { CommonModule } from '@angular/common';
 export class StatsWidgetComponent {
   @Input() title: string = '';
   @Input() value: string | number = '';
-  @Input() icon: string = '📊';
   @Input() trendText: string = '';
   @Input() trendColor: string = '#16a34a';
   @Input() subtitle: string = '';

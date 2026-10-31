@@ -70,10 +70,10 @@ import { HardwareItem } from '../../models/user.model';
       <ion-toolbar>
         <ion-segment [value]="activeSegment()" (ionChange)="onSegmentChange($event)">
           <ion-segment-button value="alta">
-            <ion-label>📝 Alta de Hardware</ion-label>
+            <ion-label>Alta de Hardware</ion-label>
           </ion-segment-button>
           <ion-segment-button value="listado">
-            <ion-label>📋 Inventario Registrado</ion-label>
+            <ion-label>Inventario Registrado</ion-label>
           </ion-segment-button>
         </ion-segment>
       </ion-toolbar>
@@ -136,7 +136,7 @@ import { HardwareItem } from '../../models/user.model';
                           <span class="error-msg">El código SKU es obligatorio.</span>
                         }
                         @if (registroForm.get('sku')?.hasError('skuTaken')) {
-                          <span class="error-msg text-danger">⚠️ Este código SKU ya está registrado en la base de datos SQL.</span>
+                          <span class="error-msg text-danger">Este código SKU ya está registrado en la base de datos SQL.</span>
                         }
                       </div>
 
@@ -236,7 +236,7 @@ import { HardwareItem } from '../../models/user.model';
                           <ion-spinner name="crescent"></ion-spinner>
                           <span style="margin-left: 0.5rem;">Guardando en base de datos...</span>
                         } @else {
-                          <span>💾 Guardar Registro en SQL</span>
+                          <span>Guardar Registro en SQL</span>
                         }
                       </ion-button>
                       <button type="button" class="btn-reset" (click)="resetForm()">
@@ -253,7 +253,7 @@ import { HardwareItem } from '../../models/user.model';
               <ion-card class="app-card preview-card">
                 <ion-card-header>
                   <div class="preview-badge">
-                    <span>⚡ Data Binding Reactivo</span>
+                    <span>Data Binding Reactivo</span>
                   </div>
                   <ion-card-title>Ficha Técnica en Tiempo Real</ion-card-title>
                   <p class="section-desc">Demostración de enlace bidireccional y reactividad de estado.</p>
@@ -261,7 +261,6 @@ import { HardwareItem } from '../../models/user.model';
                 <ion-card-content>
                   <div class="preview-device-screen">
                     <div class="device-header">
-                      <span class="device-icon">💻</span>
                       <div>
                         <h4 class="device-title">
                           {{ livePreview().producto || 'Nombre del equipo...' }}
@@ -369,7 +368,8 @@ import { HardwareItem } from '../../models/user.model';
       border-radius: 14px;
       border: 1px solid var(--ion-color-step-150, #e2e8f0);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      background: var(--ion-background-color, #ffffff);
+      background: #ffffff !important;
+      --background: #ffffff !important;
     }
 
     .section-desc {
@@ -481,7 +481,8 @@ import { HardwareItem } from '../../models/user.model';
 
     /* Vista Previa Reactiva */
     .preview-card {
-      background: linear-gradient(145deg, #f8fafc 0%, #edf2f7 100%);
+      background: #ffffff !important;
+      --background: #ffffff !important;
     }
 
     .preview-badge {

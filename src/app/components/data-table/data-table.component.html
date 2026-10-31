@@ -11,7 +11,10 @@
     <div class="table-search-box">
       <label for="table-search-input" class="visually-hidden">Buscar en tabla</label>
       <div class="search-input-wrapper">
-        <span class="search-icon" aria-hidden="true">🔍</span>
+        <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
         <input
           id="table-search-input"
           type="search"
@@ -93,21 +96,21 @@
             <td class="td-actions">
               <button
                 type="button"
-                class="btn-action-view"
+                class="btn-action-text btn-action-view"
                 (click)="selectRow(row); $event.stopPropagation()"
                 title="Ver detalles"
                 aria-label="Ver detalles"
               >
-                👁️
+                Ver
               </button>
               <button
                 type="button"
-                class="btn-action-delete"
+                class="btn-action-text btn-action-delete"
                 (click)="onDelete(row, $event)"
                 title="Eliminar registro"
                 aria-label="Eliminar registro"
               >
-                🗑️
+                Eliminar
               </button>
             </td>
           </tr>
@@ -115,7 +118,6 @@
           <tr>
             <td [attr.colspan]="columns.length + 1" class="empty-state-cell">
               <div class="empty-state-content">
-                <span class="empty-icon" aria-hidden="true">📋</span>
                 <p>No se encontraron registros que coincidan con la búsqueda.</p>
               </div>
             </td>

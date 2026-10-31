@@ -63,14 +63,14 @@ import {
               <ion-badge color="success">Evaluación Docente</ion-badge>
               <ion-badge color="tertiary">RBAC Activo</ion-badge>
             </div>
-            <ion-card-title>🔑 Credenciales de Acceso de Prueba</ion-card-title>
+            <ion-card-title>Credenciales de Acceso de Prueba</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <p>El sistema cuenta con control de acceso basado en roles (Role-Based Access Control) y Guards de Angular:</p>
             
             <div class="credentials-grid">
               <div class="cred-box admin-box">
-                <h4>👑 Rol: Administrador</h4>
+                <h4>Rol: Administrador</h4>
                 <p><strong>Email:</strong> <code>admin@empresa.com</code></p>
                 <p><strong>Contraseña:</strong> <code>Admin123!</code></p>
                 <p class="desc">Permisos: Acceso total al Cuadro de Mando, Gráficos Chart.js interactivos, Auditoría NoSQL en tiempo real, Exportación oficial de informes a PDF y CSV, y Gestión de Hardware.</p>
@@ -78,7 +78,7 @@ import {
               </div>
 
               <div class="cred-box user-box">
-                <h4>👤 Rol: Usuario Estándar</h4>
+                <h4>Rol: Usuario Estándar</h4>
                 <p><strong>Email:</strong> <code>user@empresa.com</code></p>
                 <p><strong>Contraseña:</strong> <code>User123!</code></p>
                 <p class="desc">Permisos: Alta de nuevos registros de inventario con validaciones reactivas y asíncronas (comprobación de correo y SKU únicos), consulta de registros.</p>
@@ -91,7 +91,7 @@ import {
         <!-- 2. Arquitectura del Proyecto -->
         <ion-card class="guide-card">
           <ion-card-header>
-            <ion-card-title>🏛️ Arquitectura del Software (MVC/MVVM)</ion-card-title>
+            <ion-card-title>Arquitectura del Software (MVC/MVVM)</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ul class="feature-list">
@@ -112,7 +112,7 @@ import {
         <!-- 3. Funcionalidades Destacadas -->
         <ion-card class="guide-card">
           <ion-card-header>
-            <ion-card-title>⚡ Módulos y Guía de Uso</ion-card-title>
+            <ion-card-title>Módulos y Guía de Uso</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <div class="module-item">

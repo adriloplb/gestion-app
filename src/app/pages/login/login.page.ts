@@ -47,7 +47,6 @@ import { AuthService } from '../../services/auth.service';
       <div class="login-wrapper">
         <ion-card class="login-card">
           <ion-card-header class="ion-text-center">
-            <div class="logo-shield" aria-hidden="true">🏢</div>
             <ion-card-title>Control de Acceso</ion-card-title>
             <ion-card-subtitle>FP Nebrija Madrid - Desarrollo de Interfaces</ion-card-subtitle>
           </ion-card-header>
@@ -55,7 +54,7 @@ import { AuthService } from '../../services/auth.service';
           <ion-card-content>
             <!-- Botones de Acceso Rápido para Pruebas del Evaluador -->
             <div class="quick-roles-panel">
-              <span class="quick-title">⚡ Cuentas de Demostración (Evaluación):</span>
+              <span class="quick-title">Cuentas de Demostración (Evaluación):</span>
               <div class="quick-buttons">
                 <button
                   type="button"
@@ -63,7 +62,7 @@ import { AuthService } from '../../services/auth.service';
                   (click)="fillCredentials('admin')"
                   aria-label="Rellenar como Administrador"
                 >
-                  👑 Admin (Acceso Total)
+                  Admin (Acceso Total)
                 </button>
                 <button
                   type="button"
@@ -71,14 +70,13 @@ import { AuthService } from '../../services/auth.service';
                   (click)="fillCredentials('standard')"
                   aria-label="Rellenar como Usuario Estándar"
                 >
-                  👤 Estándar (Operador)
+                  Estándar (Operador)
                 </button>
               </div>
             </div>
 
             @if (errorMessage()) {
               <div class="error-banner" role="alert" aria-live="assertive">
-                <span class="error-icon" aria-hidden="true">⚠️</span>
                 <span>{{ errorMessage() }}</span>
               </div>
             }
@@ -145,7 +143,7 @@ import { AuthService } from '../../services/auth.service';
             </form>
 
             <div class="login-footer">
-              <a routerLink="/ayuda" class="help-link">📖 Ver Manual de Usuario y Roles</a>
+              <a routerLink="/ayuda" class="help-link">Ver Manual de Usuario y Roles</a>
             </div>
           </ion-card-content>
         </ion-card>

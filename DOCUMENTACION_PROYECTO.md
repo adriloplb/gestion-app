@@ -1,5 +1,6 @@
 # PROYECTO INDIVIDUAL DE EVALUACIÓN PRÁCTICA (ACTIVIDAD 1)
 ## Módulo Profesional: Desarrollo de Interfaces (Código: 0488)
+**Alumno / Autor:** Adrián López  
 **Ciclo Formativo:** Grado Superior en Desarrollo de Aplicaciones Multiplataforma (2º DAM)  
 **Centro:** FP Nebrija Madrid  
 **Título del Proyecto:** Diseño, Desarrollo y Despliegue de Sistema de Gestión Multiplataforma (PWA/Híbrida)  
@@ -116,4 +117,3 @@ Las imágenes en alta resolución se encuentran guardadas en la carpeta `evidenc
      - Credenciales de prueba (`admin@empresa.com` / `Admin123!` y `user@empresa.com` / `User123!`).
    - Exporta el documento como PDF y comprímelo en un archivo ZIP con el formato oficial:  
      `APELLIDOS_NOMBRE_DI_PROYECTO.zip`.
-

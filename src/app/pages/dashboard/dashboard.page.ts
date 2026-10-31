@@ -84,13 +84,13 @@ Chart.register(...registerables);
 
         <div class="action-buttons-group">
           <ion-button color="danger" (click)="exportarPdf()" class="btn-export">
-            📄 Exportar Informe PDF
+            Exportar Informe PDF
           </ion-button>
           <ion-button color="success" (click)="exportarCsv()" class="btn-export">
-            📊 Exportar Datos CSV
+            Exportar Datos CSV
           </ion-button>
           <ion-button fill="outline" color="primary" (click)="recargarDatos()" title="Refrescar">
-            🔄 Refrescar
+            Refrescar
           </ion-button>
         </div>
       </div>
@@ -107,7 +107,6 @@ Chart.register(...registerables);
           <app-stats-widget
             title="Total Unidades Stock (SQL)"
             [value]="totalStock()"
-            icon="🖥️"
             trendText="+8% este mes"
             trendColor="#16a34a"
             subtitle="Equipos disponibles"
@@ -117,7 +116,6 @@ Chart.register(...registerables);
           <app-stats-widget
             title="Valor del Inventario"
             [value]="(totalValor() | currency:'EUR':'symbol':'1.0-0':'es-ES') || '0 €'"
-            icon="💶"
             trendText="Activo consolidado"
             trendColor="#2563eb"
             subtitle="Cálculo dinámico"
@@ -127,7 +125,6 @@ Chart.register(...registerables);
           <app-stats-widget
             title="Alertas Bajo Stock"
             [value]="stockCritico()"
-            icon="⚠️"
             trendText="Requiere reposición"
             trendColor="#dc2626"
             badge="Crítico"
@@ -138,7 +135,6 @@ Chart.register(...registerables);
           <app-stats-widget
             title="Logs NoSQL Tiempo Real"
             [value]="noSqlLogs().length"
-            icon="🔥"
             trendText="Sincronizado"
             trendColor="#0284c7"
             badge="Live"
@@ -152,7 +148,7 @@ Chart.register(...registerables);
           <ion-card-header>
             <div class="chart-header-flex">
               <div>
-                <ion-card-title>📊 Distribución de Stock por Categoría (Chart.js)</ion-card-title>
+                <ion-card-title>Distribución de Stock por Categoría (Chart.js)</ion-card-title>
                 <p class="chart-desc">Gráfico visual interactivo con actualización en tiempo real.</p>
               </div>
 
@@ -204,7 +200,7 @@ Chart.register(...registerables);
             <ion-card class="nosql-card">
               <ion-card-header>
                 <div class="nosql-header-row">
-                  <ion-card-title>🔥 Auditoría en Tiempo Real (NoSQL)</ion-card-title>
+                  <ion-card-title>Auditoría en Tiempo Real (NoSQL)</ion-card-title>
                   <span class="live-dot" title="Sincronización activa"></span>
                 </div>
                 <p class="nosql-desc">Últimos eventos emitidos por el flujo reactivo.</p>
@@ -220,7 +216,7 @@ Chart.register(...registerables);
                         <span class="log-time">{{ log.timestamp }}</span>
                       </div>
                       <p class="log-text">{{ log.detalles }}</p>
-                      <span class="log-user">👤 {{ log.usuario }}</span>
+                      <span class="log-user">Usuario: {{ log.usuario }}</span>
                     </div>
                   } @empty {
                     <p class="empty-logs">No hay eventos recientes registrados.</p>
