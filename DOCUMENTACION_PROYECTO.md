@@ -116,3 +116,4 @@ Las imágenes en alta resolución se encuentran guardadas en la carpeta `evidenc
      - Credenciales de prueba (`admin@empresa.com` / `Admin123!` y `user@empresa.com` / `User123!`).
    - Exporta el documento como PDF y comprímelo en un archivo ZIP con el formato oficial:  
      `APELLIDOS_NOMBRE_DI_PROYECTO.zip`.
+

@@ -1,4 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+import { firstValueFrom } from 'rxjs';
+import { describe, it, expect, beforeEach } from 'vitest';
+
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
@@ -14,31 +17,27 @@ describe('AuthService', () => {
   });
 
   it('should authenticate admin user with valid credentials', async () => {
-    service.login('admin@empresa.com', 'Admin123!').subscribe(user => {
-      expect(user).toBeTruthy();
-      expect(user.role).toBe('ADMIN');
-      expect(service.isAuthenticated()).toBe(true);
-    });
+    const user = await firstValueFrom(service.login('admin@empresa.com', 'Admin123!'));
+    expect(user).toBeTruthy();
+    expect(user.role).toBe('ADMIN');
+    expect(service.isAuthenticated()).toBe(true);
   });
 
-  it('should fail authentication with incorrect password', () => {
-    service.login('admin@empresa.com', 'wrongpassword').subscribe({
-      next: () => {
-        throw new Error('Debería haber fallado');
-      },
-      error: (err) => {
-        expect(err.message).toContain('Credenciales incorrectas');
-      }
-    });
+  it('should fail authentication with incorrect password', async () => {
+    try {
+      await firstValueFrom(service.login('admin@empresa.com', 'wrongpassword'));
+      expect.fail('Debería haber lanzado un error de autenticación');
+    } catch (err: any) {
+      expect(err.message).toContain('Credenciales incorrectas');
+    }
   });
 
-  it('should detect existing emails with checkEmailExists', () => {
-    service.checkEmailExists('admin@empresa.com').subscribe(exists => {
-      expect(exists).toBe(true);
-    });
-    service.checkEmailExists('noexiste@empresa.com').subscribe(exists => {
-      expect(exists).toBe(false);
-    });
+  it('should detect existing emails with checkEmailExists', async () => {
+    const exists = await firstValueFrom(service.checkEmailExists('admin@empresa.com'));
+    expect(exists).toBe(true);
+
+    const notExists = await firstValueFrom(service.checkEmailExists('noexiste@empresa.com'));
+    expect(notExists).toBe(false);
   });
 
   it('should clear session on logout', () => {

@@ -13,7 +13,7 @@ export class AuthService {
     {
       id: 'usr-admin-01',
       email: 'admin@empresa.com',
-      name: 'Elena Delgado (Administradora)',
+      name: 'Adrián López (Administrador)',
       role: 'ADMIN',
       passwordHash: 'Admin123!',
       avatar: 'assets/icon/favicon.png',
