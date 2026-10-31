@@ -14,10 +14,10 @@ jobs:
       - name: Checkout Código Fuente
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js (v20 LTS)
+      - name: Configurar Node.js (v22 LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Instalar Dependencias
@@ -28,4 +28,3 @@ jobs:
 
       - name: Ejecución de Tests Unitarios
         run: npm run test:unit
-
