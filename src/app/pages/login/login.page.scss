@@ -1,0 +1,50 @@
+main {
+  width: min(100%, 28rem);
+  margin: 2rem auto;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+form,
+form > div {
+  display: grid;
+  gap: 0.75rem;
+}
+
+form {
+  gap: 1.25rem;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--ion-color-medium, #92949c);
+  border-radius: 0.5rem;
+  color: var(--ion-text-color, #222428);
+  background: var(--ion-background-color, #fff);
+  font: inherit;
+}
+
+p {
+  margin: 0;
+  color: var(--ion-color-danger, #eb445a);
+}
+
+button {
+  padding: 0.875rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--ion-color-primary-contrast, #fff);
+  background: var(--ion-color-primary, #3880ff);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
