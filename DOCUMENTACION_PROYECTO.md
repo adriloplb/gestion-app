@@ -97,23 +97,3 @@ Las imágenes en alta resolución se encuentran guardadas en la carpeta `evidenc
 
 ---
 
-## 4. GUÍA PARA LA PRESENTACIÓN Y SUBIDA DE LA ACTIVIDAD
-
-1. **Subir el código a GitHub:**
-   ```bash
-   git remote add origin https://github.com/TU_USUARIO/gestion-app.git
-   git push -u origin main
-   git push -u origin develop
-   ```
-2. **Despliegue en Vercel (opción gratuita y recomendada):**
-   - Inicia sesión en [Vercel](https://vercel.com/) con tu cuenta de GitHub.
-   - Pulsa en **Add New Project**, selecciona el repositorio `gestion-app`.
-   - Vercel detectará automáticamente la configuración de `vercel.json` y desplegará la carpeta `www`.
-3. **Generar el PDF de Entrega:**
-   - Copia el texto y las capturas de esta memoria en tu documento de Google Docs o Word.
-   - Añade en la portada los enlaces:
-     - URL de GitHub (público o con acceso al docente).
-     - URL de producción de Vercel.
-     - Credenciales de prueba (`admin@empresa.com` / `Admin123!` y `user@empresa.com` / `User123!`).
-   - Exporta el documento como PDF y comprímelo en un archivo ZIP con el formato oficial:  
-     `APELLIDOS_NOMBRE_DI_PROYECTO.zip`.
